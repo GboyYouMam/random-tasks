@@ -1,68 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+    font-family: 'Share Tech Mono', monospace;
+    color: #00ff88;
+    background-color: #000;
+    text-shadow: 0 0 8px #00ff88;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    background-color: #000;
+    background-image: radial-gradient(rgba(0, 255, 0, 0.07) 1px, transparent 1px);
+    background-size: 18px 18px;
+    margin: 0;
+    padding: 2rem;
+    color: #00ff88;
+    font-size: 18px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+h1, h2, h3 {
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
+    letter-spacing: 2px;
 }
 
+p, strong {
+    color: #00ff88;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+#root {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+input {
+    background-color: rgba(0, 10, 0, 0.9);
+    border: 1px solid #00ff88;
+    color: #00ff88;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 18px;
+    padding: 0.8em 1em;
+    border-radius: 8px;
+    outline: none;
+    width: 100%;
+    transition: 0.3s ease;
+    text-align: center;
+}
+
+input:focus {
+    border-color: #00ffaa;
+    box-shadow: 0 0 15px #00ffaa;
+}
+
+/* Кнопка */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+    background-color: rgba(0, 20, 0, 0.8);
+    border: 1px solid #00ff88;
+    color: #00ff88;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 18px;
+    padding: 0.8em 1.5em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button:hover {
+    background-color: rgba(0, 255, 100, 0.15);
+    box-shadow: 0 0 15px #00ff88;
+}
+
+.border {
+    border: 1px solid #00ff88 !important;
+    box-shadow: 0 0 15px rgba(0, 255, 100, 0.3);
+    border-radius: 10px;
+    padding: 1.5em;
+    background-color: rgba(0, 10, 0, 0.8);
+    text-align: left;
+    margin-top: 20px;
+}
+
+.border p {
+    margin: 6px 0;
+    font-size: 16px;
+}
+
+img {
+    border: 1px solid #00ff88;
+    border-radius: 4px;
+    box-shadow: 0 0 8px #00ff88;
+}
+
+::selection {
+    background: #00ff88;
+    color: #000;
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.6;
+    }
+}
+
+h1, h2 {
+    animation: flicker 3s infinite;
 }

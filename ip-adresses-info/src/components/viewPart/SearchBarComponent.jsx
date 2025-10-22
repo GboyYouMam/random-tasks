@@ -1,15 +1,16 @@
 ﻿'use client';
-
+//hooks etc lol
 import { useState, useEffect } from 'react';
 import { useIPGetter } from '../ApiWorkplace/IPGetterContext.jsx';
 import limiter from '../ApiWorkplace/rateLimiter.js';
 
+//search bar component with rate limiter
 export default function SearchBarComponent() {
     const [input, setInput] = useState('');
     const [remainingTokens, setRemainingTokens] = useState(5);
     const { lookupIP, loading, error } = useIPGetter();
 
-    // updating remaining tokens every second
+    //update remaining tokens every second
     useEffect(() => {
         const interval = setInterval(() => {
             setRemainingTokens(limiter.getRemaining());
@@ -17,6 +18,7 @@ export default function SearchBarComponent() {
         return () => clearInterval(interval);
     }, []);
 
+    //handle submit
     async function handleSubmit(e) {
         e.preventDefault();
         const value = (input || '').trim();
@@ -25,44 +27,37 @@ export default function SearchBarComponent() {
         try {
             await lookupIP(value);
             setInput('');
-            setRemainingTokens(limiter.getRemaining()); // updating rn after successful lookup
+            setRemainingTokens(limiter.getRemaining());
         } catch (err) {
             console.error('lookupIP error:', err);
-            setRemainingTokens(limiter.getRemaining()); // even if error, update rn
+            setRemainingTokens(limiter.getRemaining());
         }
     }
-
+    //our ui
     return (
-        <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto flex flex-col gap-3">
-            <div className="flex gap-2">
+        <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto space-y-4 relative z-10">
+            <div className="flex gap-3">
                 <input
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    placeholder="Enter IP or domain"
-                    aria-label="IP or domain"
-                    className="flex-1 p-2 border rounded-md shadow-sm"
+                    placeholder="> Enter IP or domain"
                 />
                 <button
                     type="submit"
                     disabled={loading || !input.trim()}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-md disabled:opacity-50"
                 >
-                    {loading ? 'Loading...' : 'Lookup'}
+                    {loading ? 'Tracing...' : 'Lookup'}
                 </button>
             </div>
 
-
-            <div className="text-center text-sm text-gray-600">
-                <h4>Token counter</h4>
-                <div className="text-sm text-gray-600">
-                    Requests available: <span className="font-bold">{remainingTokens}/5</span>
-                </div>
-
-                {error && (
-                    <div className="text-red-500 text-sm font-semibold">{error}</div>
-                )}
+            <div className="text-sm text-green-500">
+                Tokens: {remainingTokens}/5
             </div>
+
+            {error && (
+                <div className="text-red-500 text-sm font-semibold">{error}</div>
+            )}
         </form>
     );
 }

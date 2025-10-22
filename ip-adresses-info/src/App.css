@@ -1,42 +1,81 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    font-family: 'VT323', monospace;
+    color: #00ff9c;
+    background-color: #000;
+    text-shadow: 0 0 5px #00ff9c;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: #000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: #00ff9c;
+    background-image: radial-gradient(#003300 1px, transparent 1px);
+    background-size: 4px 4px;
+    animation: scan 6s linear infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+@keyframes scan {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
 }
 
-.card {
-  padding: 2em;
+h1, h2, h3 {
+    color: #00ff9c;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.read-the-docs {
-  color: #888;
+p, strong {
+    color: #00ff9c;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+button {
+    @apply font-mono px-4 py-2 border border-green-400 rounded bg-black text-green-400 transition;
+}
+button:hover {
+    background-color: #002b00;
+    box-shadow: 0 0 10px #00ff9c;
+}
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+input {
+    @apply bg-black text-green-400 border border-green-400 rounded p-2 w-full;
+}
+input:focus {
+    outline: none;
+    box-shadow: 0 0 8px #00ff9c;
+}
+
+.card-terminal {
+    border: 1px solid #00ff9c;
+    background: rgba(0, 20, 0, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 0 20px #00ff9c33;
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.cursor::after {
+    content: '_';
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    50% { opacity: 0; }
 }

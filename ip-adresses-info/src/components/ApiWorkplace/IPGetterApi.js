@@ -8,7 +8,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 export async function fetchIPData(ipAddress) {
     if (!ipAddress) throw new Error('IP address is required');
 
-    // Перевірка rate limit
+    // token-bucket rate limit checkin
     if (!limiter.tryRemoveToken()) {
         const err = new Error('Rate limit exceeded. Please wait a moment and try again.');
         err.code = 'RATE_LIMIT';
