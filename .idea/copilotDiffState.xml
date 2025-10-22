@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/ip-adresses-info/src/components/ApiWorkplace/testRateLimit.mjs">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/ip-adresses-info/src/components/ApiWorkplace/testRateLimit.mjs" />
+              <option name="updatedContent" value="import { fetchIPData } from './IPGetterApi.js';&#10;&#10;async function run() {&#10;  for (let i = 1; i &lt;= 7; i++) {&#10;    try {&#10;      const res = await fetchIPData('8.8.8.8');&#10;      console.log(`${i}: OK — ${res.ip || JSON.stringify(res).slice(0,80)}`);&#10;    } catch (e) {&#10;      console.error(`${i}: ERROR — ${e.code || e.name}: ${e.message}`);&#10;    }&#10;  }&#10;}&#10;&#10;run().catch(err =&gt; console.error('Run failed', err));&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/ip-adresses-info/src/components/viewPart/IPDataElement.jsx">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/ip-adresses-info/src/components/viewPart/IPDataElement.jsx" />
+              <option name="originalContent" value="export default function IPDataElement({ data }) {&#10;    const { ip, as_name, as_domain, country_code, country, continent } = data || {};&#10;&#10;    return (&#10;        &lt;div&gt;&#10;            &lt;div className=&quot;flex flex-col items-center justify-center gap-4 p-4 border rounded shadow-lg bg-black text-white rounded-2xl&quot;&gt;&#10;                &lt;h2&gt;IP Address Information&lt;/h2&gt;&#10;                &lt;p&gt;&lt;strong&gt;IP:&lt;/strong&gt; {ip}&lt;/p&gt;&#10;                &lt;p&gt;&lt;strong&gt;AS Name:&lt;/strong&gt; {as_name}&lt;/p&gt;&#10;                &lt;p&gt;&lt;strong&gt;AS Domain:&lt;/strong&gt; {as_domain}&lt;/p&gt;&#10;                &lt;p&gt;&lt;strong&gt;Country Code:&lt;/strong&gt; {country_code}&lt;/p&gt;&#10;                &lt;p&gt;&lt;strong&gt;Country:&lt;/strong&gt; {country}&lt;/p&gt;&#10;                &lt;p&gt;&lt;strong&gt;Continent:&lt;/strong&gt; {continent}&lt;/p&gt;&#10;            &lt;/div&gt;&#10;        &lt;/div&gt;&#10;    );&#10;}&#10;" />
+              <option name="updatedContent" value="export default function IPDataElement({ data }) {&#10;    const { ip, as_name, as_domain, country_code, country, continent } = data || {};&#10;&#10;    return (&#10;        &lt;div&gt;&#10;            &lt;div className=&quot;flex flex-col items-center justify-center gap-4 p-4 border rounded shadow-lg bg-black text-white rounded-2xl&quot;&gt;&#10;                &lt;h2&gt;IP Address Information&lt;/h2&gt;&#10;                &lt;p&gt;&lt;strong&gt;IP:&lt;/strong&gt; {ip}&lt;/p&gt;&#10;                &lt;p&gt;&lt;strong&gt;AS Name:&lt;/strong&gt; {as_name}&lt;/p&gt;&#10;                &lt;p&gt;&lt;strong&gt;AS Domain:&lt;/strong&gt; {as_domain}&lt;/p&gt;&#10;                &lt;p&gt;&lt;strong&gt;Country Code:&lt;/strong&gt; {country_code}&lt;/p&gt;&#10;                &lt;p&gt;&lt;strong&gt;Country:&lt;/strong&gt; {country}&lt;/p&gt;&#10;                &lt;p&gt;&lt;strong&gt;Continent:&lt;/strong&gt; {continent}&lt;/p&gt;&#10;            &lt;/div&gt;&#10;        &lt;/div&gt;&#10;    );&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
